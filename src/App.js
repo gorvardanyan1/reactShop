@@ -48,9 +48,9 @@ export class App extends Component {
         ...this.state.products,
         {
           id: id += 1,
-          title: this.state.thatValue.title || null,
-          imgLink: this.state.thatValue.img || null,
-          price: this.state.thatValue.price || null
+          title: this.state.thatValue.title,
+          imgLink: this.state.thatValue.imgLink,
+          price: this.state.thatValue.price
         }
       ]
     })
@@ -58,11 +58,10 @@ export class App extends Component {
   render() {
     return (
       <div className='App'>
-        <nav> <MyInput handleChange={(val) => {
-          this.setState({ thatValue: val })
-          console.log(this.state.thatValue);
-        }} />
-          <MyButton handleClick={this.handleClick} /></nav>
+        <nav>
+          <MyInput handleChange={(val) => this.setState({ thatValue: val })} />
+          <MyButton handleClick={this.handleClick} />
+        </nav>
 
         <MainComponent products={this.state.products} />
       </div>
